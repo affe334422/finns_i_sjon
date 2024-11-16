@@ -8,7 +8,8 @@ List<string> kortlek = new List<string>{
     "Dam", "Dam", "Dam", "Dam", "Kung", "Kung", "Kung", "Kung"
 };
 
-
+/*  ändra tid på linje 17 och 296 till något heltal, det ändrar hastigheten av texten.
+    ändra även if() på linje 78 till true om du vill spela */
 int poäng1 = 0;
 int poäng2 = 0;
 int poäng3 = 0;
@@ -63,18 +64,16 @@ for(int i = 0; i != 4; i++){
 
 
 while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spelare4.Count != 0){
-//for(int ii = 0; ii != 5; ii++){
     //spelare 1
 
 
-    //fixa method ?
     do{
         Console.WriteLine("Spelare 1 ");
         Console.WriteLine();
         if(kortlek.Count != 0){
         spelare2.Add(DraKort(kortlek,r));
         }
-        
+
         if(false){
             do{
                 string mes6 = "Dina kort";
