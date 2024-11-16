@@ -66,50 +66,61 @@ for(int i = 0; i != 4; i++){
 while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spelare4.Count != 0){
     //spelare 1
 
+    if(spelare1.Count != 0){
+        do{
+            Console.WriteLine("Spelare 1 ");
+            Console.WriteLine();
+            if(kortlek.Count != 0){
+                spelare2.Add(DraKort(kortlek,r));
+            }
 
-    do{
-        Console.WriteLine("Spelare 1 ");
-        Console.WriteLine();
-        if(kortlek.Count != 0){
-        spelare2.Add(DraKort(kortlek,r));
-        }
+            if(1==1){
+                
+                do{
+                    if(spelare1.Count == 0){
+                        break;
+                    }
+                    
+                    string mes6 = "Dina kort";
+                    sakta(mes6,tid);
+                    vadhardeförkort(spelare1);
 
-        if(false){
-            do{
-                string mes6 = "Dina kort";
-                sakta(mes6,tid);
-                vadhardeförkort(spelare1);
-
-                string mes7 = "Vilket kort vill du ta";
-                sakta(mes7,tid);
-                string kortetduvillha = Console.ReadLine();
-                check = kortetduvillha;
-                if(!spelare1.Contains(check)){
-                    string mes8 = "Du har inte det kortet, välj ett annat";
-                    sakta(mes8, tid);
+                    string mes7 = "Vilket kort vill du ta";
+                    sakta(mes7,tid);
+                    string kortetduvillha = Console.ReadLine();
+                    check = kortetduvillha;
+                    if(!spelare1.Contains(check)){
+                        string mes8 = "Du har inte det kortet, välj ett annat";
+                        sakta(mes8, tid);
+                    }
+                }while(!spelare1.Contains(check));
+                if(spelare1.Count == 0){
+                    break;
                 }
-            }while(!spelare1.Contains(check));
-        
-            string mes9 = "Vem vill du fråga, spelare 2, 3 eller 4. Skriv 2, 3 eller 4";
-            sakta(mes9, tid);
+            
+                string mes9 = "Vem vill du fråga, spelare 2, 3 eller 4. Skriv 2, 3 eller 4";
+                sakta(mes9, tid);
 
-            frågavilken = int.Parse(Console.ReadLine());
-        }
-        else{
-            aivälja(ref spelareval, 1, ref vemdunyssfråga);
-            frågavilken = spelareval;
-        }
+                frågavilken = int.Parse(Console.ReadLine());
+                
+            }
+            else{
+                aivälja(ref spelareval, 1, ref vemdunyssfråga);
+                frågavilken = spelareval;
+            }
 
-        if(frågavilken == 2){
-            drakort_frånhand(frågavilken, ref spelare1, ref spelare2, check, ref föratt);
-        }
-        if(frågavilken == 3){
-            drakort_frånhand(frågavilken, ref spelare1, ref spelare3, check, ref föratt);
-        }
-        if(frågavilken == 4){
-            drakort_frånhand(frågavilken, ref spelare1, ref spelare4, check, ref föratt);
-        }
-    }while(föratt == 1);
+            if(frågavilken == 2){
+                drakort_frånhand(frågavilken, ref spelare1, ref spelare2, check, ref föratt);
+            }
+            if(frågavilken == 3){
+                drakort_frånhand(frågavilken, ref spelare1, ref spelare3, check, ref föratt);
+            }
+            if(frågavilken == 4){
+                drakort_frånhand(frågavilken, ref spelare1, ref spelare4, check, ref föratt);
+            }
+            harde4(ref spelare1, ref poäng1);
+        }while(föratt == 1);
+    }
 
     if(kortlek.Count != 0){
         spelare1.Add(DraKort(kortlek, r));
@@ -128,29 +139,32 @@ while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spela
     }
 
     //vilken spelare de frågar
-    do{
-        Console.WriteLine("Spelare 2 ");
-        Console.WriteLine();
-        aivälja(ref spelareval, 2, ref vemdunyssfråga);
-        frågavilken = spelareval;
+    if(spelare2.Count != 0){
+        do{
+            Console.WriteLine("Spelare 2 ");
+            Console.WriteLine();
+            aivälja(ref spelareval, 2, ref vemdunyssfråga);
+            frågavilken = spelareval;
 
-        if(frågavilken == 1){
-            drakort_frånhand(frågavilken, ref spelare2, ref spelare1, check, ref föratt);
-        }
-        if(frågavilken == 3){
-            drakort_frånhand(frågavilken, ref spelare2, ref spelare3, check, ref föratt);
-        }
-        if(frågavilken == 4){
-            drakort_frånhand(frågavilken, ref spelare2, ref spelare4, check, ref föratt);
-        }
-    }while(föratt==1);
+            if(frågavilken == 1){
+                drakort_frånhand(frågavilken, ref spelare2, ref spelare1, check, ref föratt);
+            }
+            if(frågavilken == 3){
+                drakort_frånhand(frågavilken, ref spelare2, ref spelare3, check, ref föratt);
+            }
+            if(frågavilken == 4){
+                drakort_frånhand(frågavilken, ref spelare2, ref spelare4, check, ref föratt);
+            }
+            harde4(ref spelare2, ref poäng2);
+        }while(föratt==1);
+    }
 
     if(kortlek.Count != 0){
         spelare2.Add(DraKort(kortlek, r));
     }
     harde4(ref spelare2, ref poäng2);
 
-    // spelare1 3
+    // spelare 3
 
     //vilket kort de vill ha
     if(kortlek.Count != 0){
@@ -162,22 +176,25 @@ while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spela
     }
 
     //vilken spelare de frågar
-    do{
-        Console.WriteLine("Spelare 3 ");
-        Console.WriteLine();
-        aivälja(ref spelareval, 3, ref vemdunyssfråga);
-        
-        frågavilken = spelareval;
-        if(frågavilken == 1){
-            drakort_frånhand(frågavilken, ref spelare3, ref spelare1, check, ref föratt);
-        }
-        if(frågavilken == 2){
-            drakort_frånhand(frågavilken, ref spelare3, ref spelare2, check, ref föratt);
-        }
-        if(frågavilken == 4){
-            drakort_frånhand(frågavilken, ref spelare3, ref spelare4, check, ref föratt);
-        }
-    }while(föratt == 1);
+    if(spelare3.Count != 0){
+        do{
+            Console.WriteLine("Spelare 3 ");
+            Console.WriteLine();
+            aivälja(ref spelareval, 3, ref vemdunyssfråga);
+            
+            frågavilken = spelareval;
+            if(frågavilken == 1){
+                drakort_frånhand(frågavilken, ref spelare3, ref spelare1, check, ref föratt);
+            }
+            if(frågavilken == 2){
+                drakort_frånhand(frågavilken, ref spelare3, ref spelare2, check, ref föratt);
+            }
+            if(frågavilken == 4){
+                drakort_frånhand(frågavilken, ref spelare3, ref spelare4, check, ref föratt);
+            }
+            harde4(ref spelare3, ref poäng3);
+        }while(föratt == 1);
+    }
 
     if(kortlek.Count != 0){
         spelare3.Add(DraKort(kortlek, r));
@@ -196,24 +213,25 @@ while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spela
     }
 
     //vilken spelare de frågar
-    do{
-        Console.WriteLine("Spelare 4 ");
-        Console.WriteLine();
-        aivälja(ref spelareval, 4, ref vemdunyssfråga);
+    if(spelare4.Count != 0){
+        do{
+            Console.WriteLine("Spelare 4 ");
+            Console.WriteLine();
+            aivälja(ref spelareval, 4, ref vemdunyssfråga);
 
-        frågavilken = spelareval;
-        if(frågavilken == 1){
-            drakort_frånhand(frågavilken, ref spelare4, ref spelare1, check, ref föratt);
-        }
-        if(frågavilken == 2){
-                drakort_frånhand(frågavilken, ref spelare4, ref spelare2, check, ref föratt);
-        }
-        if(frågavilken == 3){
-            drakort_frånhand(frågavilken, ref spelare4, ref spelare3, check, ref föratt);
-        }
-
-            //borde funka för att göra spel loopen i.
-    }while(föratt == 1);
+            frågavilken = spelareval;
+            if(frågavilken == 1){
+                drakort_frånhand(frågavilken, ref spelare4, ref spelare1, check, ref föratt);
+            }
+            if(frågavilken == 2){
+                    drakort_frånhand(frågavilken, ref spelare4, ref spelare2, check, ref föratt);
+            }
+            if(frågavilken == 3){
+                drakort_frånhand(frågavilken, ref spelare4, ref spelare3, check, ref föratt);
+            }
+            harde4(ref spelare4, ref poäng4);
+        }while(föratt == 1);
+    }
 
     if(kortlek.Count != 0){
         spelare4.Add(DraKort(kortlek, r));
