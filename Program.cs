@@ -88,6 +88,18 @@ while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spela
                     string mes7 = "Vilket kort vill du ta";
                     sakta(mes7,tid);
                     string kortetduvillha = Console.ReadLine();
+                    if(kortetduvillha == "knäkt"){
+                        kortetduvillha = "Knäkt";
+                    }
+                    if(kortetduvillha == "dam"){
+                        kortetduvillha = "Dam";
+                    }
+                    if(kortetduvillha == "kung"){
+                        kortetduvillha = "Kung";
+                    }
+                    if(kortetduvillha == "ess"){
+                        kortetduvillha = "Ess";
+                    }
                     check = kortetduvillha;
                     if(!spelare1.Contains(check)){
                         string mes8 = "Du har inte det kortet, välj ett annat";
@@ -97,11 +109,17 @@ while(spelare1.Count != 0 || spelare2.Count != 0 || spelare3.Count != 0 || spela
                 if(spelare1.Count == 0){
                     break;
                 }
-            
-                string mes9 = "Vem vill du fråga, spelare 2, 3 eller 4. Skriv 2, 3 eller 4";
-                sakta(mes9, tid);
 
-                frågavilken = int.Parse(Console.ReadLine());
+                do{
+                    string mes9 = "Vem vill du fråga, spelare 2, 3 eller 4. Skriv 2, 3 eller 4";
+                    sakta(mes9, tid);
+
+                    frågavilken = int.Parse(Console.ReadLine());
+                    if(frågavilken != 2 && frågavilken != 3 && frågavilken != 4){
+                        string mes11 = "Det va inte 2, 3 eller 4";
+                        sakta(mes11,tid);
+                    }
+                }while(frågavilken != 2 && frågavilken != 3 && frågavilken != 4);
                 
             }
             else{
