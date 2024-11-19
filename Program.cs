@@ -30,7 +30,7 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
     int handantalkort = 0;
     int vemdunyssfråga = 0;
     int spelareval = 0; //används bara för att veta vem de frågar kan nog sätta i en method
-    string check = "";
+    string check = "nullll";
 
     Random r = new Random();
 
@@ -46,10 +46,13 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
     // Dela ut kort till spelare
     for (int i = 0; i < antalKortPerSpelare; i++){
         spelare1.Add(DraKort(kortlek, r));
+        harde4(ref fullpoäng, ref spelare1, ref poäng1, ref check, vemkör);
         spelare2.Add(DraKort(kortlek, r));
+        harde4(ref fullpoäng, ref spelare2, ref poäng2, ref check, vemkör);
         spelare3.Add(DraKort(kortlek, r));
+        harde4(ref fullpoäng, ref spelare3, ref poäng3, ref check, vemkör);
         spelare4.Add(DraKort(kortlek, r));
-        
+        harde4(ref fullpoäng, ref spelare4, ref poäng4, ref check, vemkör);
     }
 
     // Skriv ut spelarnas händer
@@ -166,14 +169,17 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
                 if(frågavilken == 2){
                     drakort_frånhand(frågavilken, ref spelare1, ref spelare2, check, ref föratt, vemkör);
                     vemdunyssfråga = 2;
+                    harde4(ref fullpoäng, ref spelare1, ref poäng1, ref check, vemkör);
                 }
                 if(frågavilken == 3){
                     drakort_frånhand(frågavilken, ref spelare1, ref spelare3, check, ref föratt, vemkör);
                     vemdunyssfråga = 3;
+                    harde4(ref fullpoäng, ref spelare1, ref poäng1, ref check, vemkör);
                 }
                 if(frågavilken == 4){
                     drakort_frånhand(frågavilken, ref spelare1, ref spelare4, check, ref föratt, vemkör);
                     vemdunyssfråga = 4;
+                    harde4(ref fullpoäng, ref spelare1, ref poäng1, ref check, vemkör);
                 }
                 harde4(ref fullpoäng, ref spelare1, ref poäng1, ref check, vemkör);
                 aiminne[vemkör] = check;
@@ -223,14 +229,17 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
                 if(frågavilken == 1){
                     drakort_frånhand(frågavilken, ref spelare2, ref spelare1, check, ref föratt, vemkör);
                     vemdunyssfråga = 1;
+                    harde4(ref fullpoäng, ref spelare2, ref poäng2, ref check, vemkör);
                 }
                 if(frågavilken == 3){
                     drakort_frånhand(frågavilken, ref spelare2, ref spelare3, check, ref föratt, vemkör);
                     vemdunyssfråga = 3;
+                    harde4(ref fullpoäng, ref spelare2, ref poäng2, ref check, vemkör);
                 }
                 if(frågavilken == 4){
                     drakort_frånhand(frågavilken, ref spelare2, ref spelare4, check, ref föratt, vemkör);
                     vemdunyssfråga = 4;
+                    harde4(ref fullpoäng, ref spelare2, ref poäng2, ref check, vemkör);
                 }
                 harde4(ref fullpoäng, ref spelare2, ref poäng2, ref check, vemkör);
                 aiminne[vemkör] = check;
@@ -282,14 +291,17 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
                 if(frågavilken == 1){           
                     drakort_frånhand(frågavilken, ref spelare3, ref spelare1, check, ref föratt, vemkör);
                     vemdunyssfråga = 1;
+                    harde4(ref fullpoäng, ref spelare3, ref poäng3, ref check, vemkör);
                 }
                 if(frågavilken == 2){
                     drakort_frånhand(frågavilken, ref spelare3, ref spelare2, check, ref föratt, vemkör);
                     vemdunyssfråga = 2;
+                    harde4(ref fullpoäng, ref spelare3, ref poäng3, ref check, vemkör);
                 }
                 if(frågavilken == 4){
                     drakort_frånhand(frågavilken, ref spelare3, ref spelare4, check, ref föratt, vemkör);
                     vemdunyssfråga = 4;
+                    harde4(ref fullpoäng, ref spelare3, ref poäng3, ref check, vemkör);
                 }
                 harde4(ref fullpoäng, ref spelare3, ref poäng3, ref check, vemkör);
                 aiminne[vemkör] = check;
@@ -341,14 +353,17 @@ for(int såkandetvara = 0; såkandetvara != 20; såkandetvara++){
                 if(frågavilken == 1){           
                     drakort_frånhand(frågavilken, ref spelare4, ref spelare1, check, ref föratt, vemkör);
                     vemdunyssfråga = 1;
+                    harde4(ref fullpoäng, ref spelare4, ref poäng4, ref check, vemkör);
                 }
                 if(frågavilken == 2){
                     drakort_frånhand(frågavilken, ref spelare4, ref spelare2, check, ref föratt, vemkör);
                     vemdunyssfråga = 2;
+                    harde4(ref fullpoäng, ref spelare4, ref poäng4, ref check, vemkör);
                 }
                 if(frågavilken == 3){
                     drakort_frånhand(frågavilken, ref spelare4, ref spelare3, check, ref föratt, vemkör);
                     vemdunyssfråga = 3;
+                    harde4(ref fullpoäng, ref spelare4, ref poäng4, ref check, vemkör);
                 }
                 harde4(ref fullpoäng, ref spelare4, ref poäng4, ref check, vemkör);
                 aiminne[vemkör] = check;
@@ -384,18 +399,7 @@ int öö = 0;
 foreach(string lalal in spelomgångar){
     öö++;
     Console.WriteLine("om gång " + öö + " blev " +lalal);
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -530,7 +534,7 @@ static void drakort_frånhand(int vemdufrågar, ref List<string> få_hand, ref L
             få_hand.Add(check);
             antal++;
         }while(ta_hand.Contains(check));
-        string mes2 = "Spelare "+ vemkör +" frågar spelare" + vemdufrågar + " och de Hade " + anta[antal] + check;
+        string mes2 = "Spelare "+ vemkör +" frågar spelare " + vemdufrågar + " och de Hade " + anta[antal] + check;
         sakta(mes2, tid);
         föratt = 1;    
     }
